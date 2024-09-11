@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ 3. Specific locale """
 from flask import Flask, request, render_template
 from flask_babel import Babel
