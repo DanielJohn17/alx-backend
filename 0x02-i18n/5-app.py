@@ -24,6 +24,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 def get_user() -> Union[Dict, None]:
     """ Get user from request """
     login_id = request.args.get('login_as')
@@ -31,11 +32,13 @@ def get_user() -> Union[Dict, None]:
         return users.get(int(login_id))
     return None
 
+
 @app.before_request
 def before_request() -> None:
     """ Get user and set it as a global """
     user = get_user()
     g.user = user
+
 
 @babel.localeselector
 def get_locale() -> str:
