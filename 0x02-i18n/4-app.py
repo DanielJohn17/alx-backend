@@ -19,6 +19,7 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale() -> str:
+    """ Get locale from request """
     queries = request.query_string.decode('utf-8').split('&')
     query_table = dict(map(
         lambda x: (x if '=' in x else '{}='.format(x)).split('='),
